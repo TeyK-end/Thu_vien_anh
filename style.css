@@ -1,0 +1,83 @@
+/* MOBILE FIRST */
+body {
+    font-family: Arial;
+    background: white;
+    color: black;
+}
+
+/* GRID 1 CỘT */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+figure {
+    border: 2px solid #333;
+    padding: 10px;
+}
+
+img {
+    width: 100%;
+}
+
+
+/* 🔥 TABLET (>=772px) */
+@media screen and (min-width: 772px) {
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    img {
+        border-radius: 50%;
+    }
+
+    /* ảnh cuối chiếm 2 cột */
+    figure:last-child {
+        grid-column: span 2;
+    }
+}
+
+
+/* 🔥 DESKTOP (>=992px) */
+@media screen and (min-width: 992px) {
+
+    /* mỗi ảnh thứ 3 chiếm 2 cột */
+    figure:nth-child(3n) {
+        grid-column: span 2;
+    }
+
+    /* bỏ bo góc */
+    img {
+        border-radius: 0;
+    }
+}
+
+
+/* 🔥 REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        animation: none;
+    }
+}
+
+
+/* 🔥 DARK MODE */
+@media (prefers-color-scheme: dark) {
+
+    body {
+        background: #111;
+        color: yellow;
+    }
+
+    figure {
+        background: #333;
+        border: 2px solid black;
+    }
+}
